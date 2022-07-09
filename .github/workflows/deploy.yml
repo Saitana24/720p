@@ -29,13 +29,13 @@ jobs:
        - name: Cloning the repo
          continue-on-error: true
          run: |
-           git clone -b 720p https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/${{ secrets.GIT_NAME }}/${{ secrets.REPO_NAME }}.git test
+           git clone -b 720p https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@github.com/${{ secrets.GIT_NAME }}/${{ secrets.REPO_NAME }}.git AutoAnimeBot
 
        - name: Running the bot
          timeout-minutes: 300
          continue-on-error: true
          run: |
-           cd test
+           cd AutoAnimeBot
            docker build -t test . && docker run test
 
        - name: Loop workflow
